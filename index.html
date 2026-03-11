@@ -4,10 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DSA Learning Analytics</title>
-<div id="userArea">
-<span id="userName"></span>
-<button onclick="logout()">Logout</button>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -93,6 +89,23 @@
           <span id="toggle-icon">🌙</span>
         </div>
       </label>
+      <div style="display:flex;align-items:center;gap:12px">
+
+<span id="usernameDisplay" style="color:#aab4c5;font-size:14px"></span>
+
+<button onclick="logout()" style="
+padding:6px 12px;
+border:none;
+border-radius:6px;
+background:#ef4444;
+color:white;
+cursor:pointer;
+font-size:13px;
+">
+Logout
+</button>
+
+</div>
       <button class="btn btn-ghost btn-sm" onclick="exportCSV()" data-tooltip="Export CSV">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         Export
