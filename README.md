@@ -1,4 +1,4 @@
-DSA Learning Analytics Dashboard
+🚀 DSA Learning Analytics Dashboard
 
 A full-stack web application that helps users track their Data Structures and Algorithms (DSA) practice, analyze their performance, and stay consistent with problem solving.
 
