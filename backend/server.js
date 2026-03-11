@@ -46,10 +46,10 @@ const {user_id,name,platform,difficulty,pattern,time,date,revision,notes,code}=r
 
 db.run(`
 INSERT INTO problems
-(name,platform,difficulty,pattern,time,date,revision,notes,code)
-VALUES (?,?,?,?,?,?,?,?,?)
+(user_id,name,platform,difficulty,pattern,time,date,revision,notes,code)
+VALUES (?,?,?,?,?,?,?,?,?,?)
 `,
-[name,platform,difficulty,pattern,time,date,revision,notes,code],
+[user_id,name,platform,difficulty,pattern,time,date,revision,notes,code],
 function(err){
 
 if(err) res.send(err)
@@ -112,9 +112,21 @@ res.send({user_id:row.id})
 })
 
 })
-app.get("/", (req, res) => {
-res.send("DSA Learning Analytics Backend Running 🚀");
-});
+app.get("/problems/:user_id",(req,res)=>{
+
+const user_id = req.params.user_id
+
+db.all(
+"SELECT * FROM problems WHERE user_id=?",
+[user_id],
+(err,rows)=>{
+
+if(err) res.send(err)
+else res.json(rows)
+
+})
+
+})
 
 const PORT = process.env.PORT || 5000;
 
