@@ -1,79 +1,124 @@
-# 📊 DSA Learning Analytics Dashboard
+DSA Learning Analytics Dashboard
 
-An interactive **full-stack dashboard** to track Data Structures & Algorithms (DSA) practice, analyze coding progress, and visualize learning patterns.
+A full-stack web application that helps users track their Data Structures and Algorithms (DSA) practice, analyze their performance, and stay consistent with problem solving.
 
-This tool helps developers monitor problem-solving performance with charts, heatmaps, notes, reminders, and analytics.
+This dashboard provides analytics such as solved problems, difficulty breakdown, activity heatmap, revision reminders, and more.
 
----
+Features
+User Authentication
 
-## 🚀 Features
+Sign up and login system
 
-- 📈 **Analytics Dashboard**
-  - Track total solved problems
-  - Difficulty distribution (Easy / Medium / Hard)
-  - Skill score calculation
-  - Weekly progress charts
+User-specific data storage
 
-- 🔥 **Practice Heatmap**
-  - GitHub-style contribution heatmap for daily coding activity
+Secure session using local storage
 
-- 🧠 **Problem Tracker**
-  - Add solved problems
-  - Store problem patterns and topics
-  - Track time spent solving problems
+Problem Tracker
 
-- 📝 **Notes & Code Snippets**
-  - Save solution approaches
-  - Store useful tricks, formulas, or patterns
+Add solved DSA problems
 
-- ⭐ **Favorites System**
-  - Mark important problems for quick access
+Track platform, difficulty, patterns, and time taken
 
-- 🔔 **Revision Reminders**
-  - Set revision dates for spaced repetition
+Store notes and code snippets
 
-- 📤 **Export Data**
-  - Download practice history as CSV
+Analytics Dashboard
 
----
+Total problems solved
 
-## 🛠 Tech Stack
+Difficulty distribution (Easy / Medium / Hard)
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
-- Chart.js
+Skill score calculation
 
-### Backend
-- Node.js
-- Express.js
+Weekly activity charts
 
-### Database
-- SQLite
+Activity Heatmap
 
----
+Visualize daily problem solving activity
 
-## 📂 Project Structure
+Similar to GitHub contribution graph
+
+Revision Reminders
+
+Set revision dates for problems
+
+Helps reinforce learning
+
+Favorites
+
+Mark important problems
+
+Quickly revisit key questions
+
+Notes & Snippets
+
+Store explanations and code solutions for each problem
+
+CSV Export
+
+Export tracked problems as a CSV file
+
+Tech Stack
+Frontend
+
+HTML
+
+CSS
+
+JavaScript
+
+Chart.js
+
+Backend
+
+Node.js
+
+Express.js
+
+Database
+
+SQLite
+
+Deployment
+
+GitHub (version control)
+
+Render (backend hosting)
+
+GitHub Pages (frontend hosting)
+
+Project Structure
 DSA-Learning-Analytics-Dashboard
 │
-├── index.html
-├── style.css
-├── script.js
-│
-├── backend
-│ ├── server.js
-│ ├── package.json
-│
+├── index.html        # Main dashboard UI
+├── login.html        # Login / Signup page
+├── script.js         # Frontend logic
+├── style.css         # Styling
+├── server.js         # Backend API
+├── dsa.db            # SQLite database
 └── README.md
-## 📊 Future Improvements
+How It Works
 
-- LeetCode profile sync
-- AI coding insights
-- User authentication
-- Cloud deployment
-- Advanced analytics
+Users create an account or log in.
 
----
+Problems solved during practice can be added to the tracker.
+
+The system stores problem data in the SQLite database.
+
+Analytics are generated based on stored data.
+
+Users can track progress, maintain streaks, and review past problems.
+
+Future Improvements
+
+Password encryption using bcrypt
+
+Admin dashboard for user management
+
+Leaderboard for top problem solvers
+
+Integration with LeetCode API
+
+Daily practice goal tracking
+
 Live Link
 https://charishmaaddagiri.github.io/DSA-Learning-Analytics-Dashboard/
