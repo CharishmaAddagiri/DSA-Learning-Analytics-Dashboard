@@ -1,6 +1,6 @@
 async function loadProblems(){
 
-const res = await fetch("http://localhost:5000/problems")
+const res = await fetch("https://dsa-learning-analytics-dashboard.onrender.com/problems")
 
 problems = await res.json()
 
@@ -66,7 +66,7 @@ function updateChartColors() {
 /* ═══════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════ */
-let problems = JSON.parse(localStorage.getItem('dsa_problems') || '[]');
+let problems = [];
 let currentFilter = 'all';
 let searchQuery = '';
 let charts = {};
@@ -156,7 +156,7 @@ async function addProblem() {
     favorite: false
   };
 
-  await fetch("http://localhost:5000/add-problem",{
+  await fetch("https://dsa-learning-analytics-dashboard.onrender.com/add-problem",{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
