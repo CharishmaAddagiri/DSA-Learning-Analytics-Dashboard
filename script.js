@@ -76,6 +76,11 @@ let charts = {};
    INIT
 ═══════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', () => {
+   
+  if(!currentUser){
+    window.location.href = "login.html"
+    return
+  }
   applyStoredTheme();
   setDefaultDate();
   loadProblems();
@@ -158,7 +163,7 @@ async function addProblem() {
     favorite: false
   };
 
-  await fetch("https://dsa-learning-analytics-dashboard.onrender.com/add-problem",{
+  await fetch(`${API_BASE}/add-problem`,{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
