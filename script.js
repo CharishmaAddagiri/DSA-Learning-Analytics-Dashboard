@@ -1,6 +1,7 @@
+const API_BASE = "https://dsa-learning-analytics-dashboard.onrender.com";
+let currentUser = localStorage.getItem("user_id");
 async function loadProblems(){
-
-const res = await fetch("https://dsa-learning-analytics-dashboard.onrender.com/problems")
+const res = await fetch(`${API_BASE}/problems/${currentUser}`)
 
 problems = await res.json()
 
@@ -143,6 +144,7 @@ async function addProblem() {
   if (!name) { showToast('Please enter a problem name', 'error'); return; }
 
   const problem = {
+    user_id: currentUser,
     id: Date.now(),
     name,
     platform: document.getElementById('problem-platform').value,
