@@ -10,9 +10,16 @@ app.use(express.json())
 const db = new sqlite3.Database("./dsa.db")
 
 db.serialize(() => {
+db.run(`CREATE TABLE IF NOT EXISTS users (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+username TEXT UNIQUE,
+password TEXT
+)
+`)
 db.run(`
 CREATE TABLE IF NOT EXISTS problems (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
+user_id INTEGER,
 name TEXT,
 platform TEXT,
 difficulty TEXT,
@@ -35,7 +42,7 @@ else res.json(rows)
 
 app.post("/add-problem",(req,res)=>{
 
-const {name,platform,difficulty,pattern,time,date,revision,notes,code}=req.body
+const {user_id,name,platform,difficulty,pattern,time,date,revision,notes,code}=req.body
 
 db.run(`
 INSERT INTO problems
@@ -61,6 +68,46 @@ function(err){
 
 if(err) res.send(err)
 else res.send("Deleted")
+
+})
+
+})
+app.post("/signup",(req,res)=>{
+
+const {username,password} = req.body
+
+db.run(
+"INSERT INTO users (username,password) VALUES (?,?)",
+[username,password],
+function(err){
+
+if(err){
+res.status(400).send("User already exists")
+}
+else{
+res.send({user_id:this.lastID})
+}
+
+})
+
+})
+app.post("/login",(req,res)=>{
+
+const {username,password} = req.body
+
+db.get(
+"SELECT * FROM users WHERE username=? AND password=?",
+[username,password],
+(err,row)=>{
+
+if(err) return res.send(err)
+
+if(!row){
+res.status(401).send("Invalid credentials")
+}
+else{
+res.send({user_id:row.id})
+}
 
 })
 
