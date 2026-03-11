@@ -127,6 +127,14 @@ else res.json(rows)
 })
 
 })
+app.delete("/reset-db",(req,res)=>{
+
+db.run("DELETE FROM users")
+db.run("DELETE FROM problems")
+
+res.send("Database Reset")
+
+})
 
 const PORT = process.env.PORT || 5000;
 
