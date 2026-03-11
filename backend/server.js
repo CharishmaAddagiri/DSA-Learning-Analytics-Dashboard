@@ -65,6 +65,9 @@ else res.send("Deleted")
 })
 
 })
+app.get("/", (req, res) => {
+res.send("DSA Learning Analytics Backend Running 🚀");
+});
 
 const PORT = process.env.PORT || 5000;
 
