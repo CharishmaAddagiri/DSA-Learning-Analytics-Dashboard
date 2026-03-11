@@ -1,5 +1,5 @@
 const API_BASE = "https://dsa-learning-analytics-dashboard.onrender.com";
-let currentUser = localStorage.getItem("user_id");
+let currentUser = parseInt(localStorage.getItem("user_id"));
 async function loadProblems(){
 const res = await fetch(`${API_BASE}/problems/${currentUser}`)
 
