@@ -1,3 +1,8 @@
+const username = localStorage.getItem("username")
+
+if(username){
+document.getElementById("userName").innerText = "Welcome, " + username + " 👋"
+}
 const API_BASE = "https://dsa-learning-analytics-dashboard.onrender.com";
 let currentUser = parseInt(localStorage.getItem("user_id"));
 async function loadProblems(){
@@ -696,4 +701,12 @@ function getModalHTML() {
       </div>
     </div>
   `;
+}
+function logout(){
+
+localStorage.removeItem("user_id")
+localStorage.removeItem("username")
+
+window.location.href="login.html"
+
 }
