@@ -127,14 +127,7 @@ else res.json(rows)
 })
 
 })
-app.get("/reset-db",(req,res)=>{
 
-db.run("DELETE FROM users")
-db.run("DELETE FROM problems")
-
-res.send("Database reset successfully")
-
-})
 
 const PORT = process.env.PORT || 5000;
 
